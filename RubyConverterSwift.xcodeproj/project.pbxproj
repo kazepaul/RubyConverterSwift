@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A72E6A1D5F7DD6ADBBE0B486 /* Pods_RubyConverterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF3CE3AEB7ED4976D2E6343 /* Pods_RubyConverterSwift.framework */; };
 		E37968C0229590C40029F8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37968BF229590C40029F8CD /* AppDelegate.swift */; };
 		E37968C2229590C40029F8CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37968C1229590C40029F8CD /* ViewController.swift */; };
 		E37968C5229590C40029F8CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37968C3229590C40029F8CD /* Main.storyboard */; };
 		E37968C7229590C60029F8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37968C6229590C60029F8CD /* Assets.xcassets */; };
 		E37968CA229590C60029F8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37968C8229590C60029F8CD /* LaunchScreen.storyboard */; };
+		E379691C2296E5760029F8CD /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379691B2296E5760029F8CD /* APIRequest.swift */; };
+		E379691E2296E6330029F8CD /* RCAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379691D2296E6330029F8CD /* RCAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12787EDD3D535FD0858CDC4D /* Pods-RubyConverterSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubyConverterSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-RubyConverterSwift/Pods-RubyConverterSwift.release.xcconfig"; sourceTree = "<group>"; };
+		38FD73AC945AF937FEC4C477 /* Pods-RubyConverterSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubyConverterSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RubyConverterSwift/Pods-RubyConverterSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		CAF3CE3AEB7ED4976D2E6343 /* Pods_RubyConverterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubyConverterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37968BC229590C40029F8CD /* RubyConverterSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyConverterSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37968BF229590C40029F8CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E37968C1229590C40029F8CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,9 @@
 		E37968C6229590C60029F8CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E37968C9229590C60029F8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E37968CB229590C60029F8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E379690A2295A1300029F8CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E379691B2296E5760029F8CD /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		E379691D2296E6330029F8CD /* RCAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +38,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72E6A1D5F7DD6ADBBE0B486 /* Pods_RubyConverterSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41EC89196EA2DF227A03B764 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAF3CE3AEB7ED4976D2E6343 /* Pods_RubyConverterSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		683EA17629892C793EB1456A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38FD73AC945AF937FEC4C477 /* Pods-RubyConverterSwift.debug.xcconfig */,
+				12787EDD3D535FD0858CDC4D /* Pods-RubyConverterSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E37968B3229590C40029F8CD = {
 			isa = PBXGroup;
 			children = (
+				E379690A2295A1300029F8CD /* MyPlayground.playground */,
 				E37968BE229590C40029F8CD /* RubyConverterSwift */,
 				E37968BD229590C40029F8CD /* Products */,
+				683EA17629892C793EB1456A /* Pods */,
+				41EC89196EA2DF227A03B764 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +84,7 @@
 		E37968BE229590C40029F8CD /* RubyConverterSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E379690D2296330F0029F8CD /* API */,
 				E37968BF229590C40029F8CD /* AppDelegate.swift */,
 				E37968C1229590C40029F8CD /* ViewController.swift */,
 				E37968C3229590C40029F8CD /* Main.storyboard */,
@@ -64,6 +95,31 @@
 			path = RubyConverterSwift;
 			sourceTree = "<group>";
 		};
+		E379690D2296330F0029F8CD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E3796911229652BE0029F8CD /* NetworkLayer */,
+				E379690E229635650029F8CD /* RCApi */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E379690E229635650029F8CD /* RCApi */ = {
+			isa = PBXGroup;
+			children = (
+				E379691D2296E6330029F8CD /* RCAPIClient.swift */,
+			);
+			path = RCApi;
+			sourceTree = "<group>";
+		};
+		E3796911229652BE0029F8CD /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E379691B2296E5760029F8CD /* APIRequest.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +127,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E37968CE229590C60029F8CD /* Build configuration list for PBXNativeTarget "RubyConverterSwift" */;
 			buildPhases = (
+				A2BCEE9DF514B6D908C5BAC1 /* [CP] Check Pods Manifest.lock */,
 				E37968B8229590C40029F8CD /* Sources */,
 				E37968B9229590C40029F8CD /* Frameworks */,
 				E37968BA229590C40029F8CD /* Resources */,
+				1F3968AE00A3F71B1A7DECD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +188,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F3968AE00A3F71B1A7DECD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RubyConverterSwift/Pods-RubyConverterSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RubyConverterSwift/Pods-RubyConverterSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2BCEE9DF514B6D908C5BAC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RubyConverterSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E37968B8229590C40029F8CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E379691E2296E6330029F8CD /* RCAPIClient.swift in Sources */,
 				E37968C2229590C40029F8CD /* ViewController.swift in Sources */,
 				E37968C0229590C40029F8CD /* AppDelegate.swift in Sources */,
+				E379691C2296E5760029F8CD /* APIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +389,7 @@
 		};
 		E37968CF229590C60029F8CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38FD73AC945AF937FEC4C477 /* Pods-RubyConverterSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +408,7 @@
 		};
 		E37968D0229590C60029F8CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12787EDD3D535FD0858CDC4D /* Pods-RubyConverterSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
