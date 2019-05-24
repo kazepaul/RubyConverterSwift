@@ -5,6 +5,6 @@ target 'RubyConverterSwift' do
 
   pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
   pod 'Alamofire', '~> 4'
-
+  pod 'SnapKit', '4.2.0'
 
 end

@@ -15,6 +15,8 @@
 		E37968CA229590C60029F8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37968C8229590C60029F8CD /* LaunchScreen.storyboard */; };
 		E379691C2296E5760029F8CD /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379691B2296E5760029F8CD /* APIRequest.swift */; };
 		E379691E2296E6330029F8CD /* RCAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379691D2296E6330029F8CD /* RCAPIClient.swift */; };
+		E37969212297B8650029F8CD /* RCInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37969202297B8650029F8CD /* RCInputViewController.swift */; };
+		E37969232297C5F90029F8CD /* RCOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37969222297C5F90029F8CD /* RCOutputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		E379690A2295A1300029F8CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E379691B2296E5760029F8CD /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E379691D2296E6330029F8CD /* RCAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCAPIClient.swift; sourceTree = "<group>"; };
+		E37969202297B8650029F8CD /* RCInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCInputViewController.swift; sourceTree = "<group>"; };
+		E37969222297C5F90029F8CD /* RCOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCOutputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		E37968BE229590C40029F8CD /* RubyConverterSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E379691F2297B8260029F8CD /* UI */,
 				E379690D2296330F0029F8CD /* API */,
 				E37968BF229590C40029F8CD /* AppDelegate.swift */,
 				E37968C1229590C40029F8CD /* ViewController.swift */,
@@ -118,6 +123,15 @@
 				E379691B2296E5760029F8CD /* APIRequest.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		E379691F2297B8260029F8CD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E37969202297B8650029F8CD /* RCInputViewController.swift */,
+				E37969222297C5F90029F8CD /* RCOutputViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +213,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RubyConverterSwift/Pods-RubyConverterSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -206,6 +221,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,7 +260,9 @@
 			files = (
 				E379691E2296E6330029F8CD /* RCAPIClient.swift in Sources */,
 				E37968C2229590C40029F8CD /* ViewController.swift in Sources */,
+				E37969232297C5F90029F8CD /* RCOutputViewController.swift in Sources */,
 				E37968C0229590C40029F8CD /* AppDelegate.swift in Sources */,
+				E37969212297B8650029F8CD /* RCInputViewController.swift in Sources */,
 				E379691C2296E5760029F8CD /* APIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

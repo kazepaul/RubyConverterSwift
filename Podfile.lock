@@ -1,14 +1,17 @@
 PODS:
   - Alamofire (4.8.2)
+  - SnapKit (4.2.0)
   - SwiftyXMLParser (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4)
+  - SnapKit (= 4.2.0)
   - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - SnapKit
 
 EXTERNAL SOURCES:
   SwiftyXMLParser:
@@ -21,8 +24,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyXMLParser: 5ebb8793192f403fa8cc691045143906122a7a75
 
-PODFILE CHECKSUM: 4e175c7c2b650f528af6ee916cb6359102bb11e5
+PODFILE CHECKSUM: 5afd8db29bd033d90d362b26889fdd3d4dc4f3c3
 
 COCOAPODS: 1.5.3
