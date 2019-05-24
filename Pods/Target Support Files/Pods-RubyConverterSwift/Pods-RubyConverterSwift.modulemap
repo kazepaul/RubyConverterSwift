@@ -1,0 +1,6 @@
+framework module Pods_RubyConverterSwift {
+  umbrella header "Pods-RubyConverterSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
