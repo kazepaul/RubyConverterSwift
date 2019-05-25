@@ -34,9 +34,12 @@ class RCOutputViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupLayout()
+        setupGesture()
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - UI Setup
     func setupUI() {
         view.backgroundColor = UIColor.white
         
@@ -47,35 +50,44 @@ class RCOutputViewController: UIViewController {
         
         // 入力タイトルLabel設定
         inputTextViewTitleLabel.text = "入力した文字"
-        inputTextViewTitleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
-            make.bottom.equalTo(inputTextView.snp.top).offset(-20)
-        }
         
         // 入力TextView設定
         inputTextView.text = inputText
+        inputTextView.isEditable = false
+        inputTextView.font = UIFont.systemFont(ofSize: 15)
         inputTextView.sizeToFit()
         inputTextView.isScrollEnabled = false
-        inputTextView.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-20)
-            make.left.equalToSuperview().offset(20)
-            make.bottom.equalTo(outputTextViewTitleLabel.snp.top).offset(-20)
-        }
         
         // 変換結果タイトルLabel設定
         outputTextViewTitleLabel.text = "変換結果"
+ 
+        // 変換結果TextView設定
+        outputTextView.layer.borderColor = UIColor.gray.cgColor
+        outputTextView.layer.borderWidth = 3.0
+        outputTextView.layer.cornerRadius = 10.0
+        outputTextView.text = outputText
+    }
+    
+    // MARK: - Layout Setup
+    func setupLayout() {
+        inputTextViewTitleLabel.snp.makeConstraints { (make) in
+            make.top.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.bottom.equalTo(inputTextView.snp.top).offset(-10)
+        }
+        
+        inputTextView.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-20)
+            make.left.equalToSuperview().offset(20)
+            make.bottom.equalTo(outputTextViewTitleLabel.snp.top).offset(-10)
+        }
+        
         outputTextViewTitleLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)
             make.left.equalToSuperview().offset(20)
             make.bottom.equalTo(outputTextView.snp.top).offset(-20)
         }
         
-        // 変換結果TextView設定
-        outputTextView.layer.borderColor = UIColor.gray.cgColor
-        outputTextView.layer.borderWidth = 3.0
-        outputTextView.layer.cornerRadius = 10.0
-        outputTextView.text = outputText
         outputTextView.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)
             make.left.equalToSuperview().offset(20)
@@ -83,7 +95,18 @@ class RCOutputViewController: UIViewController {
             make.size.greaterThanOrEqualTo(inputTextView.snp.size)
         }
     }
+    
+    // MARK: - Setup Gesture
+    func setupGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
 
+    // MARK: - Dismiss Keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 
