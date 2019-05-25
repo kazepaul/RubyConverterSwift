@@ -70,7 +70,7 @@ struct RCAPIClient: APIRequest {
                             completion(.success(RCObject.init(accessor: xml)))
                         } catch {
                             // XML parse error handling
-                            completion(.failure(error))
+                            completion(.failure(NetworkError.networkRequestFail))
                     }
                     // API error handling
                     case 400:
@@ -90,8 +90,8 @@ struct RCAPIClient: APIRequest {
                         completion(.failure(NetworkError.networkRequestFail))
                 }
             // error handling
-            case .failure(let error):
-                completion(.failure(error))
+            case .failure( _):
+                completion(.failure(NetworkError.networkRequestFail))
             }
         }
         
