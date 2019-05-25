@@ -9,10 +9,11 @@
 import Foundation
 import Alamofire
 
-enum Result<T> {
-    case Success(T)
-    case Error(Error)
+enum APIResult<T> {
+    case success(T)
+    case failure(Error)
 }
+
 protocol APIRequest {
     var baseUrl: String { get }
     var path: String { get }
