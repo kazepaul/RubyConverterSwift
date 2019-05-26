@@ -65,6 +65,7 @@ class RCOutputViewController: UIViewController {
         outputTextView.layer.borderColor = UIColor.gray.cgColor
         outputTextView.layer.borderWidth = 3.0
         outputTextView.layer.cornerRadius = 10.0
+        outputTextView.font = UIFont.systemFont(ofSize: 15)
         outputTextView.text = outputText
     }
     
