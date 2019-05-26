@@ -20,10 +20,11 @@ enum NetworkError: String, Error {
     case internalServerError = "Internal Server Error"
     case serviceUnavailable = "Service unavailable"
     case networkRequestFail = "Network Request Fail"
-
+    case unexpectedError = "Unexpected Error"
 }
 
 struct RCAPIClient: APIRequest {
+    // MARK: default value
     var baseUrl: String {
         return "https://jlp.yahooapis.jp"
     }
@@ -54,15 +55,18 @@ struct RCAPIClient: APIRequest {
     var sentence: String
     var grade: Int
     
+    // MARK: - Initメソッド
     init(sentence: String, grade: Int) {
         self.sentence = sentence
         self.grade = grade
     }
     
+    // MARK: - ルビ振りXMLリクエスト
     func requestForRubyConvert(completion: @escaping (APIResult<RCObject>) -> Void) {
         Alamofire.request(self.baseUrl+self.path, method: self.httpMethod, parameters: self.parameters, encoding: self.bodyEncoding, headers: self.headers).responseString { (response) in
             switch response.result {
             case .success(let value):
+                // リクエスト成功
                 switch response.response?.statusCode {
                     case 200:
                         do {
@@ -70,9 +74,9 @@ struct RCAPIClient: APIRequest {
                             completion(.success(RCObject.init(accessor: xml)))
                         } catch {
                             // XML parse error handling
-                            completion(.failure(NetworkError.networkRequestFail))
+                            completion(.failure(NetworkError.unexpectedError))
                     }
-                    // API error handling
+                    // リクエスト成功ですがリスポンスコード２００以外の処理、API error handling
                     case 400:
                         completion(.failure(NetworkError.badRequest))
                     case 401:
@@ -89,7 +93,7 @@ struct RCAPIClient: APIRequest {
                     default:
                         completion(.failure(NetworkError.networkRequestFail))
                 }
-            // error handling
+            // リクエスト失敗エラー処理
             case .failure( _):
                 completion(.failure(NetworkError.networkRequestFail))
             }
