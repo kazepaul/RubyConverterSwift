@@ -17,6 +17,7 @@ enum APIResult<T> {
     case failure(Error)
 }
 
+// MARK: Custom Error
 enum NetworkError: String, Error {
     case badRequest = "Bad request"
     case unauthorized = "Unauthorized"

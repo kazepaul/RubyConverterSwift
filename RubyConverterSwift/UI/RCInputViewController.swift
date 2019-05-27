@@ -155,11 +155,9 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
         RCAPIClient.init(sentence: text, grade: grade.rawValue).requestForRubyConvert { [weak self] (result) in
             switch result {
             case .success(let rcObj):
-                print(rcObj.getRubySentence())
                 self?.navigationController?.pushViewController(RCOutputViewController(input: text, output: rcObj.getRubySentence()), animated: true)
 
             case .failure(let error):
-                print((error as! NetworkError).rawValue)
                 let alert = UIAlertController.init(title: "エラー",
                                                    message:(error as! NetworkError).rawValue,
                                                    preferredStyle: .alert)
