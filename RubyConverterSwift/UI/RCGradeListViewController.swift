@@ -40,7 +40,7 @@ class RCGradeListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.textLabel?.text = dataSource[indexPath.row].description()
+        cell.textLabel?.text = dataSource[indexPath.row].description
         cell.textLabel?.numberOfLines = 0
 
         return cell

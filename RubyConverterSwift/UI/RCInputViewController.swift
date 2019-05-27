@@ -75,7 +75,7 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
     
     // 変換レベル説明Label設定
     func setupGradeDescriptionLabel() {
-        gradeDescriptionLabel.text = grade.description()
+        gradeDescriptionLabel.text = grade.description
         gradeDescriptionLabel.numberOfLines = 0
         
         gradeDescriptionLabel.snp.makeConstraints { (make) in
@@ -172,6 +172,6 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
     
     func gradeListView(_ listView:RCGradeListViewController, didSelectGrade grade: Grade) {
         self.grade = grade
-        gradeDescriptionLabel.text = grade.description()
+        gradeDescriptionLabel.text = grade.description
     }
 }

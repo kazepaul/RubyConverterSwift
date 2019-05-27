@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Grade: Int {
+enum Grade: Int, CustomStringConvertible {
     case grade0
     case grade1
     case grade2
@@ -19,7 +19,7 @@ enum Grade: Int {
     case grade7
     case grade8
     
-    func description() -> String {
+    var description: String {
         switch self {
         case .grade0:
             return "ひらがなを含むテキストにふりがなを付けます。"
