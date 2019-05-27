@@ -11,11 +11,7 @@ import SnapKit
 
 class RCInputViewController: UIViewController, RCGradeListViewDelegate{
 
-    private var grade:Grade = .grade0 {
-        didSet {
-            gradeDescriptionLabel.text = grade.gradeDescription()
-        }
-    }
+    private var grade: Grade = .grade0
     private let titleLabel = UILabel()              //　タイトルLabel
     private let inputTextView = UITextView()        // 入力TextView
     private let gradeChangeButton = UIButton()      // 変換レベル選択ボタン
@@ -26,9 +22,7 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
         super.viewDidLoad()
         
         setupUI()
-        setupLayout()
         setupGesture()
-        grade = .grade0
         // Do any additional setup after loading the view.
     }
     
@@ -44,58 +38,61 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
         view.addSubview(gradeChangeButton)
         view.addSubview(convertButton)
         
-        // タイトルLabel設定
+        setupTitleLabel()
+        setupInputTextView()
+        setupGradeDescriptionLabel()
+        setupGradeChangeButton()
+        setupConvertButton()
+    }
+    
+    // MARK: - Setup UI and Layout
+    
+    // タイトルLabel設定
+    func setupTitleLabel() {
         titleLabel.text = "変換したい文字を入力してください"
         titleLabel.textAlignment = .center
         
-        // TextView設定
-        inputTextView.layer.borderColor = UIColor.gray.cgColor
-        inputTextView.layer.borderWidth = 3.0
-        inputTextView.layer.cornerRadius = 10.0
-        inputTextView.font = UIFont.systemFont(ofSize: 15)
-        
-        // 変換レベル説明Label設定
-        gradeDescriptionLabel.numberOfLines = 0
-        
-        // 変換レベル選択ボタン
-        gradeChangeButton.setTitle("変換レベル設定", for: .normal)
-        gradeChangeButton.setTitleColor(UIColor.black, for: .normal)
-        gradeChangeButton.layer.borderColor = UIColor.black.cgColor
-        gradeChangeButton.layer.borderWidth = 1.0
-        gradeChangeButton.layer.cornerRadius = 5.0
-        gradeChangeButton.addTarget(self, action: #selector(self.gradeChangeButtonClicked(_:)), for: .touchUpInside)
-        
-        // 変換ボタン設定
-        convertButton.setTitle("変換開始", for: .normal)
-        convertButton.setTitle("変換中", for: .disabled)
-        convertButton.setTitleColor(UIColor.black, for: .normal)
-        convertButton.backgroundColor = UIColor.white
-        convertButton.layer.borderColor = UIColor.black.cgColor
-        convertButton.layer.borderWidth = 1.0
-        convertButton.layer.cornerRadius = 5.0
-        convertButton.addTarget(self, action: #selector(self.convertButtonClicked(_:)), for: .touchUpInside)
-
-    }
-    
-    // MARK: - Layout Setup
-    func setupLayout() {
         titleLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)
             make.top.left.equalToSuperview().offset(20)
             make.bottom.equalTo(inputTextView.snp.top).offset(-10)
         }
+    }
+    
+    // TextView設定
+    func setupInputTextView() {
+        inputTextView.layer.borderColor = UIColor.gray.cgColor
+        inputTextView.layer.borderWidth = 3.0
+        inputTextView.layer.cornerRadius = 10.0
+        inputTextView.font = UIFont.systemFont(ofSize: 15)
         
         inputTextView.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)
             make.left.equalToSuperview().offset(20)
             make.bottom.equalTo(gradeDescriptionLabel.snp.top).offset(-10)
         }
+    }
+    
+    // 変換レベル説明Label設定
+    func setupGradeDescriptionLabel() {
+        gradeDescriptionLabel.text = grade.description()
+        gradeDescriptionLabel.numberOfLines = 0
         
         gradeDescriptionLabel.snp.makeConstraints { (make) in
             make.height.equalTo(70)
             make.left.equalToSuperview().offset(20)
             make.bottom.equalTo(convertButton.snp.top).offset(-10)
         }
+    }
+    
+    // 変換レベル選択ボタン
+    func setupGradeChangeButton() {
+        gradeChangeButton.setTitle("変換レベル設定", for: .normal)
+        gradeChangeButton.setTitleColor(UIColor.black, for: .normal)
+        gradeChangeButton.layer.borderColor = UIColor.black.cgColor
+        gradeChangeButton.layer.borderWidth = 1.0
+        gradeChangeButton.layer.cornerRadius = 5.0
+        gradeChangeButton.addTarget(self, action: #selector(self.gradeChangeButtonClicked(_:)), for: .touchUpInside)
         
         gradeChangeButton.snp.makeConstraints { (make) in
             make.height.equalTo(50)
@@ -104,6 +101,18 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
             make.left.equalTo(gradeDescriptionLabel.snp.right).offset(20)
             make.centerY.equalTo(gradeDescriptionLabel.snp.centerY)
         }
+    }
+    
+    // 変換ボタン設定
+    func setupConvertButton() {
+        convertButton.setTitle("変換開始", for: .normal)
+        convertButton.setTitle("変換中", for: .disabled)
+        convertButton.setTitleColor(UIColor.black, for: .normal)
+        convertButton.backgroundColor = UIColor.white
+        convertButton.layer.borderColor = UIColor.black.cgColor
+        convertButton.layer.borderWidth = 1.0
+        convertButton.layer.cornerRadius = 5.0
+        convertButton.addTarget(self, action: #selector(self.convertButtonClicked(_:)), for: .touchUpInside)
         
         convertButton.snp.makeConstraints { (make) in
             make.height.equalTo(50)
@@ -161,7 +170,8 @@ class RCInputViewController: UIViewController, RCGradeListViewDelegate{
         }
     }
     
-    func didGradeSelected(_ grade: Grade) {
+    func gradeListView(_ listView:RCGradeListViewController, didSelectGrade grade: Grade) {
         self.grade = grade
+        gradeDescriptionLabel.text = grade.description()
     }
 }

@@ -19,8 +19,7 @@ enum Grade: Int {
     case grade7
     case grade8
     
-    func gradeDescription() -> String {
-        
+    func description() -> String {
         switch self {
         case .grade0:
             return "ひらがなを含むテキストにふりがなを付けます。"

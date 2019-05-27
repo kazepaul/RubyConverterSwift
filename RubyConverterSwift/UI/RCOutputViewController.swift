@@ -11,14 +11,14 @@ import SnapKit
 
 class RCOutputViewController: UIViewController {
 
-    var inputText: String!
-    var outputText: String!
+    private var inputText: String!
+    private var outputText: String!
     
-    let inputTextViewTitleLabel = UILabel()     // 入力タイトルLabel
-    let inputTextView = UITextView()            // 入力TextView
+    private let inputTextViewTitleLabel = UILabel()     // 入力タイトルLabel
+    private let inputTextView = UITextView()            // 入力TextView
     
-    let outputTextViewTitleLabel = UILabel()    // 変換結果タイトルLabel
-    let outputTextView = UITextView()           // 変換結果TextView
+    private let outputTextViewTitleLabel = UILabel()    // 変換結果タイトルLabel
+    private let outputTextView = UITextView()           // 変換結果TextView
 
     required init(input: String, output: String) {
         super.init(nibName: nil, bundle: nil)
@@ -34,7 +34,6 @@ class RCOutputViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        setupLayout()
         setupGesture()
         // Do any additional setup after loading the view.
     }
@@ -48,46 +47,57 @@ class RCOutputViewController: UIViewController {
         view.addSubview(outputTextViewTitleLabel)
         view.addSubview(outputTextView)
         
-        // 入力タイトルLabel設定
+        setupInputTextViewTitleLabel()
+        setupInputTextView()
+        setupOutputTextViewTitleLabel()
+        setupOutputTextView()
+    }
+    // MARK: - Setup UI and Layout
+
+    // 入力タイトルLabel設定
+    func setupInputTextViewTitleLabel() {
         inputTextViewTitleLabel.text = "入力した文字"
         
-        // 入力TextView設定
+        inputTextViewTitleLabel.snp.makeConstraints { (make) in
+            make.top.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.bottom.equalTo(inputTextView.snp.top).offset(-10)
+        }
+    }
+    
+    // 入力TextView設定
+    func setupInputTextView() {
         inputTextView.text = inputText
         inputTextView.isEditable = false
         inputTextView.font = UIFont.systemFont(ofSize: 15)
         inputTextView.sizeToFit()
         inputTextView.isScrollEnabled = false
         
-        // 変換結果タイトルLabel設定
-        outputTextViewTitleLabel.text = "変換結果"
- 
-        // 変換結果TextView設定
-        outputTextView.layer.borderColor = UIColor.gray.cgColor
-        outputTextView.layer.borderWidth = 3.0
-        outputTextView.layer.cornerRadius = 10.0
-        outputTextView.font = UIFont.systemFont(ofSize: 15)
-        outputTextView.text = outputText
-    }
-    
-    // MARK: - Layout Setup
-    func setupLayout() {
-        inputTextViewTitleLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().offset(20)
-            make.right.equalToSuperview().offset(-20)
-            make.bottom.equalTo(inputTextView.snp.top).offset(-10)
-        }
-        
         inputTextView.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)
             make.left.equalToSuperview().offset(20)
             make.bottom.equalTo(outputTextViewTitleLabel.snp.top).offset(-10)
         }
+    }
+    
+    // 変換結果タイトルLabel設定
+    func setupOutputTextViewTitleLabel() {
+        outputTextViewTitleLabel.text = "変換結果"
         
         outputTextViewTitleLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)
             make.left.equalToSuperview().offset(20)
             make.bottom.equalTo(outputTextView.snp.top).offset(-20)
         }
+    }
+    
+    // 変換結果TextView設定
+    func setupOutputTextView() {
+        outputTextView.layer.borderColor = UIColor.gray.cgColor
+        outputTextView.layer.borderWidth = 3.0
+        outputTextView.layer.cornerRadius = 10.0
+        outputTextView.font = UIFont.systemFont(ofSize: 15)
+        outputTextView.text = outputText
         
         outputTextView.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-20)

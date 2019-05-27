@@ -12,6 +12,11 @@ import SwiftyXMLParser
 
 fileprivate let AppID = "dj00aiZpPUcyNlBSb2UzWDRyQSZzPWNvbnN1bWVyc2VjcmV0Jng9OTU-"
 
+enum APIResult<T> {
+    case success(T)
+    case failure(Error)
+}
+
 enum NetworkError: String, Error {
     case badRequest = "Bad request"
     case unauthorized = "Unauthorized"
@@ -23,37 +28,16 @@ enum NetworkError: String, Error {
     case unexpectedError = "Unexpected Error"
 }
 
-struct RCAPIClient: APIRequest {
+struct RCAPIClient {
     // MARK: default value
-    var baseUrl: String {
-        return "https://jlp.yahooapis.jp"
-    }
+    let baseUrl: String = "https://jlp.yahooapis.jp"
+    let path: String = "/FuriganaService/V1/furigana"
+    let httpMethod: HTTPMethod = .get
+    let headers: [String : String]? = nil
+    let bodyEncoding: ParameterEncoding = URLEncoding.queryString
     
-    var path: String {
-        return "/FuriganaService/V1/furigana"
-    }
-    
-    var httpMethod: HTTPMethod {
-        return .get
-    }
-    
-    var parameters: [String : Any]? {
-        var para = ["appid" : AppID,
-                    "sentence" : sentence]
-        if 1...8 ~= grade {
-            para["grade"] = String(grade)
-        }
-        return para
-    }
-    
-    var headers: [String : String]? = nil
-    
-    var bodyEncoding: ParameterEncoding {
-        return URLEncoding.queryString
-    }
-    
-    var sentence: String
-    var grade: Int
+    let sentence: String
+    let grade: Int
     
     // MARK: - Initメソッド
     init(sentence: String, grade: Int) {
@@ -63,7 +47,15 @@ struct RCAPIClient: APIRequest {
     
     // MARK: - ルビ振りXMLリクエスト
     func requestForRubyConvert(completion: @escaping (APIResult<RCObject>) -> Void) {
-        Alamofire.request(self.baseUrl+self.path, method: self.httpMethod, parameters: self.parameters, encoding: self.bodyEncoding, headers: self.headers).responseString { (response) in
+        let fullPathURL = self.baseUrl + self.path
+        
+        var parameters = ["appid" : AppID,
+                    "sentence" : sentence]
+        if 1...8 ~= grade {
+            parameters["grade"] = String(grade)
+        }
+        
+        Alamofire.request(fullPathURL, method: self.httpMethod, parameters: parameters, encoding: self.bodyEncoding, headers: self.headers).responseString { (response) in
             switch response.result {
             case .success(let value):
                 // リクエスト成功

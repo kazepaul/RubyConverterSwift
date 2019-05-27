@@ -11,7 +11,6 @@
 		E37968C0229590C40029F8CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37968BF229590C40029F8CD /* AppDelegate.swift */; };
 		E37968C7229590C60029F8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37968C6229590C60029F8CD /* Assets.xcassets */; };
 		E37968CA229590C60029F8CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37968C8229590C60029F8CD /* LaunchScreen.storyboard */; };
-		E379691C2296E5760029F8CD /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379691B2296E5760029F8CD /* APIRequest.swift */; };
 		E379691E2296E6330029F8CD /* RCAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379691D2296E6330029F8CD /* RCAPIClient.swift */; };
 		E37969212297B8650029F8CD /* RCInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37969202297B8650029F8CD /* RCInputViewController.swift */; };
 		E37969232297C5F90029F8CD /* RCOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37969222297C5F90029F8CD /* RCOutputViewController.swift */; };
@@ -33,7 +32,6 @@
 		E37968C9229590C60029F8CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E37968CB229590C60029F8CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E379690A2295A1300029F8CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E379691B2296E5760029F8CD /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E379691D2296E6330029F8CD /* RCAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCAPIClient.swift; sourceTree = "<group>"; };
 		E37969202297B8650029F8CD /* RCInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCInputViewController.swift; sourceTree = "<group>"; };
 		E37969222297C5F90029F8CD /* RCOutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCOutputViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		E379690D2296330F0029F8CD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				E3796911229652BE0029F8CD /* NetworkLayer */,
 				E379690E229635650029F8CD /* RCApi */,
 			);
 			path = API;
@@ -124,14 +121,6 @@
 				E379691D2296E6330029F8CD /* RCAPIClient.swift */,
 			);
 			path = RCApi;
-			sourceTree = "<group>";
-		};
-		E3796911229652BE0029F8CD /* NetworkLayer */ = {
-			isa = PBXGroup;
-			children = (
-				E379691B2296E5760029F8CD /* APIRequest.swift */,
-			);
-			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		E379691F2297B8260029F8CD /* UI */ = {
@@ -287,7 +276,6 @@
 				E379692B2298D2170029F8CD /* XMLParsableObject.swift in Sources */,
 				E37969292298D1D20029F8CD /* RCObject.swift in Sources */,
 				E37969212297B8650029F8CD /* RCInputViewController.swift in Sources */,
-				E379691C2296E5760029F8CD /* APIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
